@@ -8,6 +8,7 @@ class Grupo(models.Model):
 	"""docstring for Grupo"""
 	nombre_grupo = models.CharField(max_length=30)
 	uploadfoto = models.FileField(upload_to='uploads/')
+	fecha_inicio = models.DateField()
 
 class Artista(models.Model):
 	"""docstring for Artista"""
