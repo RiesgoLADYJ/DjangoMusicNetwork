@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+<h1>Hola</h1>
+{% block content %}
+{% for posts in publicacion %}
+    <div>
+    	<p>{{ posts.titulo }}</p>
+        <p>publicada en: {{ posts.fecha_publicacion }}</p>
+        <p>{{ posts.texto|linebreaks }}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}
+
+   
+    <div>
+    	
+        <!-- <p>publicada en: {{ publicacion.fecha_publicacion }}</p>
+        <p>{{ publicacion.text|linebreaks }}</p> -->
+    </div>
+    
+

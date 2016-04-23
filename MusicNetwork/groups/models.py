@@ -1,13 +1,14 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
 class Grupo(models.Model):
 	"""docstring for Grupo"""
 	nombre_grupo = models.CharField(max_length=30)
-	uploadfoto = models.FileField(upload_to='uploads/')
+	uploadfoto = models.ImageField(upload_to='profile_images', blank=True)
 	fecha_inicio = models.DateField()
 
 class Artista(models.Model):
@@ -28,9 +29,20 @@ class Genero(models.Model):
 		"""docstring for Genero"""
 		nombre_genero = models.CharField(max_length=30)
 			
+class Publicacion(models.Model):
+	"""docstring for Publicacion"""
+	autor = models.ForeignKey('auth.User', null = True, blank=True)
+	texto = models.TextField(default='Nada que ver aqui. (empty)')
+	titulo = models.CharField(max_length=30, default = 'Sin titulo')
+	fecha_creacion = models.DateTimeField(default=timezone.now)
+	fecha_publicacion = models.DateTimeField(blank=True, null=True)
+	grupo_publicacion = models.ForeignKey(Grupo, on_delete=models.CASCADE, default=01)
 
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()
 
-	
-		
+	def __str__(self):
+		return self.texto
 						
 				
