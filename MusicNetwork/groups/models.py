@@ -10,6 +10,9 @@ class Grupo(models.Model):
 	nombre_grupo = models.CharField(max_length=30)
 	uploadfoto = models.ImageField(upload_to='profile_images', blank=True)
 	fecha_inicio = models.DateField()
+	def get_absolute_url(self):
+		from django.core.urlresolvers import reverse
+		return reverse('groups.views.groups', args=[str(self.id)])
 
 class Artista(models.Model):
 	"""docstring for Artista"""
@@ -44,5 +47,3 @@ class Publicacion(models.Model):
 
 	def __str__(self):
 		return self.texto
-						
-				

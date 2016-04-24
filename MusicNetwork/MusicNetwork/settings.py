@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'America/Mexico_City'
 
@@ -122,6 +122,9 @@ USE_TZ = True
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
+MEDIA_ROOT='/home/yosh/Practica3Riesgo/DjangoMusicNetwork/MusicNetwork/media' 
+MEDIA_URL='/media/'
 
 
 # Static files (CSS, JavaScript, Images)
