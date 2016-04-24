@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+ <div>
+    	<p>{{ grupo.nombre_grupo }}</p>
+        <p>Inicio carrera artistica: {{ grupo.fecha_inicio }}</p>
+        <img src="{{ grupo.uploadfoto }}"/>
+    </div>
+
+{% endblock %}

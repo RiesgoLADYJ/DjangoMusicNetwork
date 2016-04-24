@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 
-<h1>Hola</h1>
 {% block content %}
+{% for group in grupos %}
+    <div>
+    	<p><a href="">{{group.nombre_grupo}}</a>
+    	</p>
+    </div>
+{% endfor %}
 {% for posts in publicacion %}
     <div>
     	<p>{{ posts.titulo }}</p>

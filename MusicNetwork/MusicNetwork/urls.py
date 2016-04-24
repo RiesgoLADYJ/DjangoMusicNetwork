@@ -22,5 +22,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('groups.urls')),
+    url(r'^grupo/(\d+)/$', include('groups.urls'))
 ]
 urlpatterns += staticfiles_urlpatterns()
