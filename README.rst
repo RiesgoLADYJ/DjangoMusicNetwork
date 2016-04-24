@@ -18,6 +18,8 @@ Configuración del ambiente de desarrollo
     (Practica3Riesgo)$ git clone https://github.com/RiesgoLADYJ/DjangoMusicNetwork.git
     (Practica3Riesgo)$ cd DjangoMusicNetwork/
     (Practica3Riesgo)$ pip install django==1.9.3
+    (Practica3Riesgo)$ pip install psycopg2
+    (Practica3Riesgo)$ pip install Pillow
 
 Configuración de la base de datos (sqlite3)
 
