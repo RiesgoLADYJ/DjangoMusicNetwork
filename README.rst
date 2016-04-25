@@ -18,8 +18,10 @@ Configuración del ambiente de desarrollo
     (Practica3Riesgo)$ git clone https://github.com/RiesgoLADYJ/DjangoMusicNetwork.git
     (Practica3Riesgo)$ cd DjangoMusicNetwork/
     (Practica3Riesgo)$ pip install django==1.9.3
+    (Practica3Riesgo)$ pip install psycopg2
+    (Practica3Riesgo)$ pip install Pillow
 
-Configuración de la base de datos (sqlite3)
+Configuración de la base de datos (postgresql)
 
 .. code:: bash
 
@@ -44,7 +46,7 @@ Para ejecutar las pruebas funcionales levantamos el servidor
     (Practica3Riesgo)$ python manage.py runserver
 
 
-y en otra cosnola ejecutamos
+y en otra consola ejecutamos
 
 .. code:: bash
 
