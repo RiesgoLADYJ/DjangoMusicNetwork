@@ -4,9 +4,20 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+       
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+<a href="{% url 'nuevo_grupo'%}" >Nuevo grupo o artista</a>
 {% block content %}{% endblock %}
+
+<a href="">Login</a>
+<a href='accounts/register'>Registrarse</a>
 </body>
+
+<a href="{% url 'post_list_and_groups'%}"><footer>Volver al inicio</footer></a>
+<!-- originalmente para mostrar la creacion de grupos estaba checando si estaba logeado, pero ya no nos dio tiempo<footer>{% if user.is_authenticated %} </footer> -->
 </html>

@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<head></head>
 {% for group in grupos %}
     <div>
-    	<p><a href="{{ group.get_absolute_url }}">{{group.nombre_grupo}}</a>
+    	<p><a href="/grupo{{ group.get_absolute_url }}">{{group.nombre_grupo}}</a>
     	</p>
     </div>
 {% endfor %}
@@ -14,7 +15,6 @@
         <p>{{ posts.texto|linebreaks }}</p>
     </div>
 {% endfor %}
-
 {% endblock %}
 
    

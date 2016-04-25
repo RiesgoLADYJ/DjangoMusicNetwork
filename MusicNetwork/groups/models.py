@@ -2,17 +2,18 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils import timezone
+from django.forms import ModelForm
 
 # Create your models here.
 
 class Grupo(models.Model):
 	"""docstring for Grupo"""
 	nombre_grupo = models.CharField(max_length=30)
-	uploadfoto = models.ImageField(upload_to='profile_images', blank=True)
+	#uploadfoto = models.ImageField(upload_to='profile_images',blank=True, null=True) ): esta muy dificil eso de subir fotos
 	fecha_inicio = models.DateField()
 	def get_absolute_url(self):
 		from django.core.urlresolvers import reverse
-		return reverse('groups.views.groups', args=[str(self.id)])
+		return reverse('grupos', args=[str(self.id)])
 
 class Artista(models.Model):
 	"""docstring for Artista"""
@@ -34,7 +35,7 @@ class Genero(models.Model):
 			
 class Publicacion(models.Model):
 	"""docstring for Publicacion"""
-	autor = models.ForeignKey('auth.User', null = True, blank=True)
+	autor = models.ForeignKey('accounts.User', null = True, blank=True)
 	texto = models.TextField(default='Nada que ver aqui. (empty)')
 	titulo = models.CharField(max_length=30, default = 'Sin titulo')
 	fecha_creacion = models.DateTimeField(default=timezone.now)
@@ -46,4 +47,5 @@ class Publicacion(models.Model):
 		self.save()
 
 	def __str__(self):
-		return self.texto
+		return self.titulo
+

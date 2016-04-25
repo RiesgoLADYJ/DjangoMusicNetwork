@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from .models import Grupo, Publicacion
+from .forms import GrupoForm
+from django.shortcuts import redirect
+
 # Create your views here.
 
 def post_list_and_groups(request):
@@ -12,3 +15,17 @@ def post_list_and_groups(request):
 def groups(request,pk):
 	grupo = get_object_or_404(Grupo.objects.order_by('nombre_grupo'), pk=pk)
 	return render(request, 'fanpage.html', {'grupo': grupo})
+
+def nuevo_grupo(request):
+	if request.method == "POST":
+		form = GrupoForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = request.user
+			post.published_date = timezone.now()
+			post.save()
+			return redirect('grupos', pk=post.pk)
+	else:
+		form = GrupoForm()
+		return render(request, 'nuevo_grupo.html', {'form': form})
+		
