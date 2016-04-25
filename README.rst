@@ -1,4 +1,4 @@
-# DjangoMusicNetwork
+DjangoMusicNetwork
 ========
 
 Practica 3 Riesgo Tecnológico, creación de una red social para aficionados de la música implementada en Django
@@ -52,3 +52,5 @@ y en otra consola ejecutamos
 
     (Practica3Riesgo)$ python functional_tests/fcsocial_test.py
 
+Registro basado en:
+http://musings.tinbrain.net/blog/2014/sep/21/registration-django-easy-way/
