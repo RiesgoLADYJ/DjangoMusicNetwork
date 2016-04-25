@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('groups.urls')),
     url(r'^grupo/(\d+)|(nuevo_grupo)/', include('groups.urls', namespace = 'grupo')),
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+   
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

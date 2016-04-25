@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from .models import Grupo, Publicacion
 from .forms import GrupoForm
+from .forms import RegistroForm
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -28,4 +29,25 @@ def nuevo_grupo(request):
 	else:
 		form = GrupoForm()
 		return render(request, 'nuevo_grupo.html', {'form': form})
-		
+
+def registro(request):
+	if request.method == "POST":
+		form = RegistroForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.save()
+			return redirect('post_list_and_groups')
+	else:
+		form = RegistroForm()
+		return render(request, 'registro.html', {'form': form})
+
+def crearPost(request):
+	if request.method == "POST":
+		form = PublicacionForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.save()
+			return redirect('grupos', pk=post.pk)
+	else:
+		form = PublicacionForm()
+		return render(request, 'fanpage.html', {'forma': form})

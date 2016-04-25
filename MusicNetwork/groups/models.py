@@ -32,10 +32,11 @@ class Album(models.Model):
 class Genero(models.Model):
 		"""docstring for Genero"""
 		nombre_genero = models.CharField(max_length=30)
+		grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, default='00')
 			
 class Publicacion(models.Model):
 	"""docstring for Publicacion"""
-	autor = models.ForeignKey('accounts.User', null = True, blank=True)
+	autor = models.ForeignKey('auth.User', null = True, blank=True)
 	texto = models.TextField(default='Nada que ver aqui. (empty)')
 	titulo = models.CharField(max_length=30, default = 'Sin titulo')
 	fecha_creacion = models.DateTimeField(default=timezone.now)
