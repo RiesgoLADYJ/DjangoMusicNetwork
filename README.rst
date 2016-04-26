@@ -52,5 +52,5 @@ y en otra consola ejecutamos
 
     (Practica3Riesgo)$ python functional_tests/fcsocial_test.py
 
-Registro basado en:
-http://musings.tinbrain.net/blog/2014/sep/21/registration-django-easy-way/
+login basado en:
+http://www.effectivedjango.com/tutorial/authzn.html
