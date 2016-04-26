@@ -4,7 +4,11 @@ from django.shortcuts import get_object_or_404
 from .models import Grupo, Publicacion
 from .forms import GrupoForm
 from .forms import RegistroForm
+from .forms import PublicacionForm
+from .forms import LoginForm
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -46,8 +50,27 @@ def crearPost(request):
 		form = PublicacionForm(request.POST)
 		if form.is_valid():
 			post = form.save(commit=False)
+			post.author = request.user
+			post.published_date = timezone.now()
 			post.save()
-			return redirect('grupos', pk=post.pk)
+			return HttpResponseRedirect("/")
 	else:
 		form = PublicacionForm()
-		return render(request, 'fanpage.html', {'forma': form})
+		return render(request, 'posts.html', {'form': form})
+
+def login(request):
+	form = LoginForm(request.POST)
+	try:
+		username = (request.POST['username'])
+		contrasenia = (request.POST['password'])
+	except KeyError:
+		username = ""
+		contrasenia = ""
+	user = authenticate(username=username, password=password)
+	if user is not None:
+		if user.is_active:
+			login(request, user)
+			return HttpResponseRedirect("/")
+		else:
+			form = LoginForm()
+	return render(request, 'login.html', {'form' : form})

@@ -1,23 +1,36 @@
-{% load static from staticfiles %}
+
+{% load staticfiles %}
 
 <!doctype html>
 <html lang="es">
 <head>
 
     <meta charset="utf-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <a href="">Login</a>
+    <link rel="stylesheet" href="{% static 'css/group.css' %}">
+    <a href="{% url 'login'%}">Login</a>
 	<a href="{% url 'registro'%}">Registrarse</a>
 	<br>
+
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 <a href="{% url 'nuevo_grupo'%}" >Nuevo grupo o artista</a>
+<a href="{% url 'posts'%}" >Crear post</a>
 {% block content %}{% endblock %}
 
 </body>
-
+{{ user }}
+      {% if user.is_anonymous %}
+      <a href="{% url 'django.contrib.auth.views.login' %}">login</a>
+      {% else %}
+      <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+      {% endif %}
 <a href="{% url 'post_list_and_groups'%}"><footer>Volver al inicio</footer></a>
 </html>

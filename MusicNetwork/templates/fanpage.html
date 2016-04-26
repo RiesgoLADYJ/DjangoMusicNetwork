@@ -6,10 +6,7 @@
     	<p>{{ grupo.nombre_grupo }}</p>
         <p>Inicio carrera artistica: {{ grupo.fecha_inicio }}</p>
         <!-- <a><img src="{{ grupo.uploadfoto.url }}" height="420" /></a> -->
-        <form method="POST" class="post-form" >{% csrf_token %}
-            {{ forma.as_p }}
-            <button type="submit" class="save btn btn-default">Publicar</button>
-        </form>
+        
     </div>
 
 {% endblock %}

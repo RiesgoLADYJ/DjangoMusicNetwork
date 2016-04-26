@@ -13,11 +13,16 @@ class RegistroForm(forms.ModelForm):
 	"""docstring for RegistroForm"""
 	class Meta:
 		model = User
-		fields = ('email','password')
+		fields = ('username','email','password')
 
 class PublicacionForm(forms.ModelForm):
 	"""docstring for PublicacionForm"""
 	class Meta:
 		model = Publicacion
 		fields = ('titulo','texto','fecha_creacion','fecha_publicacion','grupo_publicacion')
-		
+
+class LoginForm(forms.ModelForm):
+	"""docstring for PublicacionForm"""
+	class Meta:
+		model = User
+		fields = ('email','password')

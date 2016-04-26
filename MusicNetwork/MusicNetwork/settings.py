@@ -125,6 +125,7 @@ STATICFILES_DIRS = (
 MEDIA_ROOT='/home/yosh/Practica3Riesgo/DjangoMusicNetwork/MusicNetwork/media' 
 MEDIA_URL='/media/'
 
+LOGIN_URL = 'django.contrib.auth.views.login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
